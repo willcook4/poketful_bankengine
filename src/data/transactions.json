@@ -189,7 +189,7 @@
       "status": "posted",
       "creditDebitIndicator": "debit",
       "type": "automatic payment",
-      "categories": [],
+      "categories": ["Rent"],
       "merchantName": null
     },
     {
@@ -1689,7 +1689,7 @@
       "status": "posted",
       "creditDebitIndicator": "debit",
       "type": "automatic payment",
-      "categories": [],
+      "categories": ["Rent"],
       "merchantName": null
     },
     {
@@ -3117,7 +3117,7 @@
       "status": "posted",
       "creditDebitIndicator": "debit",
       "type": "automatic payment",
-      "categories": [],
+      "categories": ["Rent"],
       "merchantName": null
     },
     {
