@@ -1,30 +1,10 @@
 import React from 'react'
 import { Link } from '@reach/router'
 import { ListBox } from "../components/ListBox";
-import styled from 'styled-components';
 import { StyledButton as Button } from '../components/button';
+import {Wrapper} from '../components/wrapper';
 
 export const YourPlan = () => {
-  const Wrapper = styled("div")`
-    .page {
-      background-color: #e9edf2;
-      height: 100%;
-      width: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      display: flex;
-      flex-direction: column;
-    }
-    
-    Button {
-      width: 50%;
-      height: 50px;
-      font-size: 20px;
-      margin: 10px auto;
-    }
-    
-  `;
 
   return (
     <Wrapper>
@@ -43,7 +23,7 @@ export const YourPlan = () => {
             }
           ]}
         />
-        <Button type="primary" shape='round'>
+        <Button type="primary" shape='round' size="medium">
           <Link to='/your-payment'>Set It Up</Link>
         </Button>
       </div>

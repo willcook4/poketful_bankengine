@@ -29,4 +29,11 @@ export const StyledButton = styled(Button)`
     }
   ` : null
   }
+
+  ${props => props.size && props.size === 'medium' ? `
+      width: 50%;
+      height: 50px;
+      font-size: 20px;
+      margin: 10px auto;
+  `: null}
 `
