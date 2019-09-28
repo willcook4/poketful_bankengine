@@ -1,24 +1,30 @@
-import React from 'react';
-import "antd/dist/antd.css";
-import './App.css';
-import { StyledButton as Button } from './components/button'
-import { StyledH1 as H1 } from './components/text'
+import React from 'react'
+// import { render } from 'react-dom'
+import { Router } from '@reach/router'
 
-function App() {
-  return (
-    <div className="App">
-        <H1 type='bold'>Bold H1 Primary Text</H1>
-        <H1 type='normal'>Normal H1 Primary Text</H1>
+import "antd/dist/antd.css"
+import './App.css'
 
-        <Button type='primary' shape='round'>Primary button</Button>
+import { Welcome } from './routes/Welcome'
+import { Authentication } from './routes/Authentication'
+import { YourBudget } from './routes/YourBudget'
+import { YourPlan } from './routes/YourPlan'
+import { YourPayment } from './routes/YourPayment'
+import { Home } from './routes/Home'
 
-        <h4>Secondary Button</h4>
-        <Button type='secondary' shape='round'>Secondary button</Button>
-
-        <h4>Danger Button</h4>
-        <Button type="danger" shape='round'>Danger button</Button>
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <Router>
+        <Welcome path='/welcome' />
+        <YourBudget path='/your-budget' />
+        <Authentication path='/authentication' />
+        <YourPlan path='/your-plan' />
+        <YourPayment path='/your-payment' />
+        <Home path='/' />
+      </Router>
+    )
+  }
 }
 
-export default App;
+export default App
