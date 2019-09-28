@@ -181,6 +181,18 @@
       "merchantName": null
     },
     {
+      "transactionId": "160e89fb9cab3f57",
+      "timestamp": "2019-08-23T00:00:00",
+      "description": "M + J Gin Rent Guy",
+      "amount": -400.0,
+      "currency": "NZD",
+      "status": "posted",
+      "creditDebitIndicator": "debit",
+      "type": "automatic payment",
+      "categories": [],
+      "merchantName": null
+    },
+    {
       "transactionId": "2adb22d056b9eb4e",
       "timestamp": "2019-08-23T00:00:00",
       "description": "Chuffed Cafe 23-12:02-745 ************ 2345 00745",
