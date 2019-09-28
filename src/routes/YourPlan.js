@@ -19,6 +19,9 @@ export const YourPlan = () => {
   
   Button {
     margin:  10px auto;
+    width: 50%;
+    height: 50px;
+    font-size: 20px;
   }
 `;
   return (
