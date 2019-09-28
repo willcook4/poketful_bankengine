@@ -29,4 +29,10 @@ export const StyledButton = styled(Button)`
     }
   ` : null
   }
+
+  ${ props => props.align && props.align === 'right' ? `
+    display: flex;
+    margin-left: auto;
+  ` : null
+  }
 `
