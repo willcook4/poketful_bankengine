@@ -34,6 +34,12 @@ const Wrapper = styled('div')`
 `
 
 export const Welcome = () => {
+
+  const onClickStart = () => {
+    const authURL = 'https://auth.bankengine.nz/banks?ReturnUrl=%2Fconnect%2Fauthorize%2Fcallback%3Fresponse_type%3Dcode%26client_id%3Dhackathon2019%26redirect_uri%3Dhttp%253A%252F%252Flocalhost%253A3000%252Fyour-budget%26scope%3Duserinfo%2520offline_access%2520accounts%2520balance%2520transactions%2520payments%26nonce%3Dnonce%26state%3Dstate%2527';
+    window.location.assign(authURL);
+  }
+
   return (
     // <nav>
     //   <ul>
@@ -62,7 +68,7 @@ export const Welcome = () => {
           <H1 type='bold'>Welcome to</H1>
         </div>
         <img src={logo} id="beneLogo" />
-        <Button type='primary' shape='round'>Get Started</Button>
+        <Button type='primary' shape='round' onClick={onClickStart}>Get Started</Button>
         <div>
           <p>Powered by</p>
           <img src={pocketfulLogo} id="pocketfulLogo" />
