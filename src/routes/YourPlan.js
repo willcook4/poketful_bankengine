@@ -2,15 +2,24 @@ import React from 'react'
 import { Link } from '@reach/router'
 import { ListBox } from "../components/ListBox";
 import styled from 'styled-components';
+import { StyledButton as Button } from '../components/button';
 
 export const YourPlan = () => {
   const Wrapper = styled("div")`
-  background-color: #e9edf2;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
+  .page {
+    background-color: #e9edf2;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  Button {
+    margin:  10px auto;
+  }
 `;
   return (
     // <nav>
@@ -34,19 +43,24 @@ export const YourPlan = () => {
     //   </ul>
     // </nav>
     <Wrapper>
+      <div className="page">
       <ListBox
-        title="Your Weekly Payment"
+        title="Plan Review"
         data={[
           {
             type: "Benefit Payment",
             amt: "250",
             icon: "fas fa-coins fa-fw"
+          }, {
+            type: "Total Expense",
+            amt: "150",
+            icon: "fas fa-coins fa-fw"
           }
         ]}
       />
-      <ListBox
-        title="Your Weekly Expense"
-      />
+      <Button type="primary" shape='round'>Set It Up</Button>
+      </div>
+      
     </Wrapper>
 
   )
