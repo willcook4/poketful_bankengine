@@ -6,15 +6,23 @@ import logo from '../eggbene.jpg';
 import pocketfulLogo from '../Pocketful_logo-1.png';
 
 const Wrapper = styled('div')`
-  display: grid;
-  grid-template-columns: auto;
-  grid-row-gap: 40px;
-  text-align: center;
-  margin-top: 30%;
+  background-color: #e9edf2;
+  font-family: "Poppins", sans-serif;
+  .pageContent {
+    padding-top: 50px;
+    padding-bottom: 25px;
+    display: grid;
+    height: 120%;
+    grid-template-columns: auto;
+    grid-row-gap: 40px;
+    text-align: center;
+  }
   #beneLogo {
     width: 60%;
     height: auto;
     margin: auto;
+    border-radius: 50%;
+    box-shadow: 10px 10px 8px #888888;
   }
   Button {
     width: 50%;
@@ -40,8 +48,8 @@ export const Welcome = () => {
   }
 
   return (
-    <div>
-      <Wrapper>
+    <Wrapper>
+      <div className="pageContent">
         <div>
           <H1 type='bold'>Kia Ora Danielle</H1>
           <H1 type='bold'>Welcome to</H1>
@@ -52,9 +60,8 @@ export const Welcome = () => {
           <p>Powered by</p>
           <img src={pocketfulLogo} id="pocketfulLogo" />
         </div>
-      </Wrapper>
-
-    </div>
+      </div>
+    </Wrapper>
 
   )
 }
