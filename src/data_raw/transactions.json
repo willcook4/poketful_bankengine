@@ -529,18 +529,6 @@
       "merchantName": "Mc Donalds"
     },
     {
-      "transactionId": "a9802e73702445bb",
-      "timestamp": "2019-08-15T00:00:00",
-      "description": "Meridian Energy",
-      "amount": -137.25,
-      "currency": "NZD",
-      "status": "posted",
-      "creditDebitIndicator": "debit",
-      "type": "direct credit",
-      "categories": ["Electricity"],
-      "merchantName": "Meridian"
-    },
-    {
       "transactionId": "11e1fc079a0636e4",
       "timestamp": "2019-08-14T00:00:00",
       "description": "3456-****-****-2345  Df  Subway Parne",
@@ -2125,18 +2113,6 @@
       "merchantName": "Challenge"
     },
     {
-      "transactionId": "baa6397bdae37ad9",
-      "timestamp": "2019-07-15T00:00:00",
-      "description": "Meridian Energy",
-      "amount": -132.80,
-      "currency": "NZD",
-      "status": "posted",
-      "creditDebitIndicator": "debit",
-      "type": "direct credit",
-      "categories": ["Electricity"],
-      "merchantName": "Meridian"
-    },
-    {
       "transactionId": "ff1bd0625a83d503",
       "timestamp": "2019-07-15T00:00:00",
       "description": "The Bottle O Milford 3456******** 2345   C 190712185418",
@@ -3575,18 +3551,6 @@
       "type": "eftpos",
       "categories": ["Cafe"],
       "merchantName": "The Clove"
-    }, 
-    {
-      "transactionId": "ef6507f05e21e9ca",
-      "timestamp": "2019-06-15T00:00:00",
-      "description": "Meridian Energy",
-      "amount": -141.70,
-      "currency": "NZD",
-      "status": "posted",
-      "creditDebitIndicator": "debit",
-      "type": "direct credit",
-      "categories": ["Electricity"],
-      "merchantName": "Meridian"
     },
     {
       "transactionId": "9f39e005fe56164b",
