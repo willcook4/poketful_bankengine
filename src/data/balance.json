@@ -1,0 +1,15 @@
+{
+  "data": [
+    {
+      "currency": "NZD",
+      "available": 51.53,
+      "current": 51.53,
+      "overdraft": 0.0,
+      "updatedTimestamp": "2019-09-28T00:31:28.5019647Z",
+      "links": {
+        "self": "https://api.bankengine.nz/data/v1/accounts/7ef2962b2b22af6a/balance",
+        "account": "https://api.bankengine.nz/data/v1/accounts/7ef2962b2b22af6a"
+      }
+    }
+  ]
+}

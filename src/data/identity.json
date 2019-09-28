@@ -1,0 +1,19 @@
+{
+  "data": [
+    {
+      "addresses": [
+        {
+          "address": "53 Hurstmere Road",
+          "city": "Auckland",
+          "country": "NZ",
+          "postCode": "0620"
+        }
+      ],
+      "dateOfBirth": "1994-03-13T00:00:00",
+      "emails": ["hello@bankengine.nz"],
+      "fullName": "John Smith",
+      "phones": ["+6494894427"],
+      "update_timestamp": "0001-01-01T00:00:00Z"
+    }
+  ]
+}
