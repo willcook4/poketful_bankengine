@@ -17,9 +17,6 @@ export const YourPlan = () => {
       flex-direction: column;
     }
     
-    Link {
-      margin: 10px auto;
-    }
     Button {
       width: 50%;
       height: 50px;
