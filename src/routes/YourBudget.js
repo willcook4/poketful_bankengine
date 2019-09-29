@@ -1,32 +1,54 @@
 import React from 'react'
-import { Link } from '@reach/router'
+import styled from "styled-components"
+
+import getWeeklyBills from "../getWeeklyBills"
+import { ListBox } from "../components/ListBox"
 import { Messaging } from '../components/messagingModal'
 
-export const YourBudget = () => {
-  return (
-    <React.Fragment>
-      <nav>
-        <ul>
-          <li style={{display: 'block'}}>
-            <Link to='/welcome'>To Welcome</Link>
-          </li>
-          <li style={{display: 'block'}}>
-            {/* <Link to='/your-budget'>To Your Budget</Link> */}
-            <span>Your Budget</span>
-          </li>
-          <li style={{display: 'block'}}>
-            <Link to='/your-plan'>To Your Plan</Link>
-          </li>
-          <li style={{display: 'block'}}>
-            <Link to='/your-payment'>To Payment</Link>
-          </li>
-          <li style={{display: 'block'}}>
-            <Link to='/authentication'>To Auth</Link>
-          </li>
-        </ul>
-      </nav>
-      
-      <Messaging />
-    </React.Fragment>
-  )
+const Wrapper = styled("div")`
+  .page {
+    background-color: #e9edf2;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+`;
+
+export class YourBudget extends React.Component {
+  state = {
+    checked: true
+  };
+
+  toggleChecked = () => {
+    this.setState({ checked: !this.state.checked });
+  };
+
+  render() {
+    return (
+      <Wrapper>
+        <div className="page">
+          {/* <NavBar /> */}
+          <ListBox
+            title="Your Benefit"
+            data={[
+              {
+                type: "Benefit Payment",
+                amt: "250",
+                icon: "fas fa-coins fa-fw"
+              }
+            ]}
+          />
+          <ListBox
+            title="Your Bills"
+            data={getWeeklyBills()}
+            needCheckbox
+            isBillBox
+          />
+        </div>
+        <Messaging />
+      </Wrapper>
+    );
+  }
 }

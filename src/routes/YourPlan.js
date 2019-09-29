@@ -1,32 +1,34 @@
 import React from 'react'
 import { Link } from '@reach/router'
 import { Messaging } from '../components/messagingModal'
+import { ListBox } from "../components/ListBox";
+import { StyledButton as Button } from '../components/button';
+import { Wrapper } from '../components/wrapper'
 
 export const YourPlan = () => {
   return (
-    <div>
-      <nav>
-        <ul>
-          <li style={{display: 'block'}}>
-            <Link to='/welcome'>To Welcome</Link>
-          </li>
-          <li style={{display: 'block'}}>
-            <Link to='/your-budget'>To Your Budget</Link>
-          </li>
-          <li style={{display: 'block'}}>
-            {/* <Link to='/your-plan'>To Your Plan</Link> */}
-            <span>Your plan</span>
-          </li>
-          <li style={{display: 'block'}}>
-            <Link to='/your-payment'>To Payment</Link>
-          </li>
-          <li style={{display: 'block'}}>
-            <Link to='/authentication'>To Auth</Link>
-          </li>
-        </ul>
-      </nav>
+    <Wrapper>
+      <div className="page">
+        <ListBox
+          title="Plan Review"
+          data={[
+            {
+              type: "Benefit Payment",
+              amt: "250",
+              icon: "fas fa-coins fa-fw"
+            }, {
+              type: "Total Expense",
+              amt: "150",
+              icon: "fas fa-coins fa-fw"
+            }
+          ]}
+        />
+        <Button type="primary" shape='round' size="medium">
+          <Link to='/your-payment'>Set It Up</Link>
+        </Button>
+      </div>
+      
       <Messaging />
-    </div>
-    
+    </Wrapper>
   )
 }
