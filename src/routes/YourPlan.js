@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from '@reach/router'
+import { Messaging } from '../components/messagingModal'
 import { ListBox } from "../components/ListBox";
 import { StyledButton as Button } from '../components/button';
 import { Wrapper } from '../components/wrapper';

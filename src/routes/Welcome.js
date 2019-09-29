@@ -1,9 +1,11 @@
 import React from 'react'
-import { StyledH1 as H1 } from '../components/text';
-import { StyledButton as Button } from '../components/button';
-import styled from 'styled-components';
-import logo from '../eggbene.jpg';
-import pocketfulLogo from '../Pocketful_logo-1.png';
+import styled from 'styled-components'
+import { Messaging } from '../components/messagingModal'
+import { StyledH1 as H1 } from '../components/text'
+import { StyledButton as Button } from '../components/button'
+
+import logo from '../eggbene.jpg'
+import pocketfulLogo from '../Pocketful_logo-1.png'
 
 const Wrapper = styled('div')`
   background-color: #e9edf2;
@@ -54,14 +56,14 @@ export const Welcome = () => {
           <H1 type='bold'>Kia Ora Danielle</H1>
           <H1 type='bold'>Welcome to</H1>
         </div>
-        <img src={logo} id="beneLogo" />
+        <img src={logo} id="beneLogo" alt='bennie logo'/>
         <Button type='primary' shape='round' onClick={onClickStart}>Get Started</Button>
         <div>
           <p>Powered by</p>
-          <img src={pocketfulLogo} id="pocketfulLogo" />
+          <img src={pocketfulLogo} id="pocketfulLogo" alt="pocketful logo" />
         </div>
       </div>
+      <Messaging />
     </Wrapper>
-
   )
 }

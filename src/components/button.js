@@ -30,6 +30,12 @@ export const StyledButton = styled(Button)`
   ` : null
   }
 
+  ${ props => props.align && props.align === 'right' ? `
+    display: flex;
+    margin-left: auto;
+  ` : null
+  }
+
   ${props => props.size && props.size === 'medium' ? `
       width: 50%;
       height: 50px;

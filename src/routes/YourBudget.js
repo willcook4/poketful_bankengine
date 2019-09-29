@@ -1,11 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import getWeeklyBills from "../getWeeklyBills";
+import React from 'react'
+import styled from "styled-components"
 
-import { List } from "antd";
-import { NavBar } from "../components/NavBar";
-import { BudgetListItem } from "../components/BudgetListItem";
-import { ListBox } from "../components/ListBox";
+import getWeeklyBills from "../getWeeklyBills"
+import { ListBox } from "../components/ListBox"
+import { Messaging } from '../components/messagingModal'
 
 const Wrapper = styled("div")`
   .page {
@@ -49,6 +47,7 @@ export class YourBudget extends React.Component {
             isBillBox
           />
         </div>
+        <Messaging />
       </Wrapper>
     );
   }
