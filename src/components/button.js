@@ -35,5 +35,5 @@ export const StyledButton = styled(Button)`
       height: 50px;
       font-size: 20px;
       margin: 10px auto;
-  `: null}
+  `: props.size === "small" ? `width: 40%`: null}
 `

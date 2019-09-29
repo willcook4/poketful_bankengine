@@ -11,4 +11,7 @@ export const Wrapper = styled("div")`
         display: flex;
         flex-direction: column;
     }
+    #successMessage {
+        margin: 0 auto;
+    }
     `
