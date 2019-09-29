@@ -1,20 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-import {
-  List,
-  Button,
-  Modal,
-  Input,
-  InputNumber,
-  DatePicker,
-  Select,
-  Form
-} from "antd";
+import { List } from "antd";
 import { BudgetListItem } from "./BudgetListItem";
 import { NewBillModalForm } from "./NewBillModalForm";
-
-const { Option } = Select;
+import { theme } from "../theme";
 
 const Wrapper = styled("div")`
   .box {
@@ -50,6 +40,7 @@ const Wrapper = styled("div")`
     font-weight: 700;
     color: black;
     margin-right: 15px;
+    width: 50px;
   }
 
   .ant-list-item i {
@@ -62,15 +53,57 @@ const Wrapper = styled("div")`
     text-align: center;
     height: 30px;
   }
+
+  .ant-input {
+    margin-top: 15px;
+  }
+
+  .ant-checkbox-checked .ant-checkbox-inner {
+    background: ${theme.color.primary};
+    border-color: ${theme.color.primary};
+  }
+
+  .modalOkBtn {
+    background: ${theme.color.primary};
+    border-color: ${theme.color.primary};
+  }
+
+  .totalAmt {
+    margin-left: 100px;
+  }
 `;
 
 export class ListBox extends React.Component {
   state = {
-    addNewBill: false
+    addNewBill: false,
+    data: this.props.data,
+    visible: false,
+    total: this.props.needCheckbox
+      ? 0
+      : this.props.data.reduce((a, b) => a + parseInt(b.amt), 0)
   };
 
   toggleAddNewBill = () => {
     this.setState({ addNewBill: !this.state.addNewBill });
+  };
+
+  addBillAmt = amt => {
+    const newTotal = this.state.total + amt;
+    this.setState({ total: newTotal }, () => {
+      this.props.trackBills(this.state.total);
+    });
+  };
+
+  handleSubmit = values => {
+    var newBill = {
+      type: values.title,
+      amt: values.amt,
+      description: "Per Week",
+      icon: "fas fa-file-invoice-dollar fa-fw"
+    };
+    var newState = [...this.state.data, newBill];
+
+    this.props.updateBillData(newState);
   };
 
   render() {
@@ -85,49 +118,26 @@ export class ListBox extends React.Component {
               <BudgetListItem
                 iconName={item.icon}
                 title={item.type}
-                description="Next Payment Due in 5 days"
+                description={item.description}
                 amt={item.amt}
                 needCheckbox={this.props.needCheckbox}
+                addBillAmt={this.addBillAmt}
               />
             )}
           />
+
           {this.props.isBillBox ? (
             <div>
-              <Button
-                type="primary"
-                shape="round"
-                icon="plus"
-                size="small"
-                block
-                className="addBtn"
-                onClick={this.toggleAddNewBill}
-              >
-                Add new bill
-              </Button>
-
-              <Modal
-                title="Add New Bill"
-                visible={this.state.addNewBill}
-                onOk={this.toggleAddNewBill}
-                onCancel={this.toggleAddNewBill}
-                centered
-              >
-                <Input placeholder="Bill title" />
-                <Input placeholder="Bill type" />
-                <InputNumber
-                  defaultValue={1000}
-                  formatter={value =>
-                    `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                  }
-                  parser={value => value.replace(/\$\s?|(,*)/g, "")}
+              <List>
+                <BudgetListItem
+                  iconName=""
+                  title="Total Bills"
+                  description="Per week"
+                  amt={this.state.total}
+                  className="totalAmt"
                 />
-                <DatePicker placeholder="Due Date" />
-                <Select defaultValue="weekly" style={{ width: 120 }}>
-                  <Option value="weekly">Weekly</Option>
-                  <Option value="fortnightly">Fortnightly</Option>
-                  <Option value="monthly">Monthly</Option>
-                </Select>
-              </Modal>
+              </List>
+              <NewBillModalForm handleSubmit={this.handleSubmit} />
             </div>
           ) : null}
         </div>

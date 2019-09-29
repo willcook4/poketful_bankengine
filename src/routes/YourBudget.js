@@ -6,6 +6,7 @@ import { List } from "antd";
 import { NavBar } from "../components/NavBar";
 import { BudgetListItem } from "../components/BudgetListItem";
 import { ListBox } from "../components/ListBox";
+import { StyledButton as Button } from "../components/button";
 
 const Wrapper = styled("div")`
   .page {
@@ -16,15 +17,37 @@ const Wrapper = styled("div")`
     top: 0;
     left: 0;
   }
+
+  .submitBtn {
+    margin: 25px;
+  }
 `;
 
 export class YourBudget extends React.Component {
   state = {
-    checked: true
+    benefit: 250,
+    billTotal: 0,
+    moneyLeft: 250,
+    data: getWeeklyBills()
   };
 
-  toggleChecked = () => {
-    this.setState({ checked: !this.state.checked });
+  goNextScreen = () => {
+    window.localStorage.setItem("benefit", this.state.benefit);
+    window.localStorage.setItem("billTotal", this.state.billTotal);
+    window.localStorage.setItem("moneyLeft", this.state.moneyLeft);
+
+    //implement the navigation to next screen
+  };
+
+  trackBills = total => {
+    this.setState({
+      billTotal: total,
+      moneyLeft: this.state.benefit - total
+    });
+  };
+
+  updateBillData = newData => {
+    this.setState({ data: newData });
   };
 
   render() {
@@ -33,21 +56,45 @@ export class YourBudget extends React.Component {
         <div className="page">
           {/* <NavBar /> */}
           <ListBox
-            title="Your Benefit"
+            title="Your Weekly Benefit"
             data={[
               {
-                type: "Benefit Payment",
-                amt: "250",
+                type: "Youth Payment",
+                amt: this.state.benefit,
                 icon: "fas fa-coins fa-fw"
               }
             ]}
           />
           <ListBox
             title="Your Bills"
-            data={getWeeklyBills()}
+            data={this.state.data}
             needCheckbox
             isBillBox
+            trackBills={this.trackBills}
+            updateBillData={this.updateBillData}
           />
+          <ListBox
+            title=""
+            data={[
+              {
+                type: "Your spending money",
+                amt: this.state.moneyLeft,
+                icon: "fas fa-hand-holding-usd fa-fw",
+                description: ""
+              }
+            ]}
+          />
+          <div className="submitBtn">
+            <Button
+              type="primary"
+              shape="round"
+              size="large"
+              block
+              onclick={this.goNextScreen}
+            >
+              All good!
+            </Button>
+          </div>
         </div>
       </Wrapper>
     );

@@ -27,6 +27,7 @@ const getWeeklyBills = () => {
     weeklyBills.push({
       type: value,
       icon: getIcon(value),
+      description: "Per Week",
       amt:
         (
           expenses

@@ -10,16 +10,26 @@ export class BudgetListItem extends React.Component {
     this.setState({ checked: !this.state.checked });
   };
 
+  handleCheckbox = () => {
+    if (!this.state.checked) {
+      this.props.addBillAmt(parseInt(this.props.amt));
+      this.toggleChecked();
+    } else {
+      this.props.addBillAmt(parseInt(this.props.amt) * -1);
+      this.toggleChecked();
+    }
+  };
+
   render() {
     return (
-      <List.Item>
+      <List.Item className={this.props.className}>
         <i className={this.props.iconName}></i>
         <List.Item.Meta
-          onClick={this.toggleChecked}
+          onClick={this.props.needCheckbox ? this.handleCheckbox : null}
           title={this.props.title}
           description={this.props.description}
         />
-        <div className="amount">{this.props.amt} $</div>
+        <div className="amount">$ {this.props.amt}</div>
         {this.props.needCheckbox ? (
           <Checkbox checked={this.state.checked} />
         ) : (

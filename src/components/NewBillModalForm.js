@@ -1,27 +1,15 @@
 import React from "react";
-import {
-  Button,
-  Modal,
-  Form,
-  Input,
-  Radio,
-  InputNumber,
-  DatePicker,
-  Select
-} from "antd";
+
+import { Modal, Form, Input, InputNumber, DatePicker, Select } from "antd";
+
+import { StyledButton as Button } from "../components/button";
 
 const { Option } = Select;
 
-export const NewBillModalForm = Form.create({ name: "add_bill_form" })(
+const CollectionCreateForm = Form.create({ name: "form_in_modal" })(
   // eslint-disable-next-line
   class extends React.Component {
     render() {
-      const formItemLayout = {
-        sm: {
-          labelCol: { span: 2 },
-          wrapperCol: { span: 4 }
-        }
-      };
       const { visible, onCancel, onCreate, form } = this.props;
       const { getFieldDecorator } = form;
       return (
@@ -31,32 +19,40 @@ export const NewBillModalForm = Form.create({ name: "add_bill_form" })(
           okText="Create"
           onCancel={onCancel}
           onOk={onCreate}
+          footer={[
+            <Button key="back" type="ghost" onClick={onCancel}>
+              Cancel
+            </Button>,
+            <Button key="submit" type="primary" onClick={onCreate}>
+              Add Bill
+            </Button>
+          ]}
         >
-          <Form {...formItemLayout}>
-            <Form.Item label="Plain Text">
-              <Input placeholder="Bill title" />
+          <Form layout="vertical">
+            <Form.Item label="Bill Name">
+              {getFieldDecorator("title")(<Input placeholder="Name" />)}
             </Form.Item>
-            <Form.Item>
-              <Input placeholder="Bill type" />
+            <Form.Item label="Amount">
+              {getFieldDecorator("amt")(
+                <InputNumber
+                  formatter={value =>
+                    `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                  }
+                  parser={value => value.replace(/\$\s?|(,*)/g, "")}
+                />
+              )}
             </Form.Item>
-            <Form.Item>
-              <InputNumber
-                defaultValue={1000}
-                formatter={value =>
-                  `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                }
-                parser={value => value.replace(/\$\s?|(,*)/g, "")}
-              />
+            <Form.Item label="Due Date">
+              {getFieldDecorator("date")(<DatePicker placeholder="Date" />)}
             </Form.Item>
-            <Form.Item>
-              <DatePicker placeholder="Due Date" />
-            </Form.Item>
-            <Form.Item>
-              <Select defaultValue="weekly" style={{ width: 120 }}>
-                <Option value="weekly">Weekly</Option>
-                <Option value="fortnightly">Fortnightly</Option>
-                <Option value="monthly">Monthly</Option>
-              </Select>
+            <Form.Item label="Frequency">
+              {getFieldDecorator("freq")(
+                <Select style={{ width: 120 }}>
+                  <Option value="weekly">Weekly</Option>
+                  <Option value="fortnightly">Fortnightly</Option>
+                  <Option value="monthly">Monthly</Option>
+                </Select>
+              )}
             </Form.Item>
           </Form>
         </Modal>
@@ -64,3 +60,59 @@ export const NewBillModalForm = Form.create({ name: "add_bill_form" })(
     }
   }
 );
+
+export class NewBillModalForm extends React.Component {
+  state = {
+    visible: false
+  };
+
+  showModal = () => {
+    this.setState({ visible: true });
+  };
+
+  handleCancel = () => {
+    this.setState({ visible: false });
+  };
+
+  handleCreate = () => {
+    const { form } = this.formRef.props;
+    form.validateFields((err, values) => {
+      if (err) {
+        return;
+      }
+
+      console.log("Received values of form: ", values);
+      this.props.handleSubmit(values);
+      form.resetFields();
+      this.setState({ visible: false });
+    });
+  };
+
+  saveFormRef = formRef => {
+    this.formRef = formRef;
+  };
+
+  render() {
+    return (
+      <div>
+        <Button
+          type="ghost"
+          shape="round"
+          icon="plus"
+          size="small"
+          block
+          className="addBtn"
+          onClick={this.showModal}
+        >
+          Add new bill
+        </Button>
+        <CollectionCreateForm
+          wrappedComponentRef={this.saveFormRef}
+          visible={this.state.visible}
+          onCancel={this.handleCancel}
+          onCreate={this.handleCreate}
+        />
+      </div>
+    );
+  }
+}
