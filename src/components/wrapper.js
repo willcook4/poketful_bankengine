@@ -15,4 +15,7 @@ export const Wrapper = styled("div")`
     #successMessage {
         margin: 0 auto;
     }
+    H1 {
+        margin-left: 20px;
+    }
     `
