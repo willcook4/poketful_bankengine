@@ -4,7 +4,7 @@ import { Messaging } from '../components/messagingModal'
 import { StyledH1 as H1 } from '../components/text'
 import { StyledButton as Button } from '../components/button'
 
-import logo from '../eggbene.jpg'
+import logo from '../girl.png'
 import pocketfulLogo from '../Pocketful_logo-1.png'
 
 const Wrapper = styled('div')`
@@ -12,19 +12,22 @@ const Wrapper = styled('div')`
   font-family: "Poppins", sans-serif;
   .pageContent {
     padding-top: 50px;
-    padding-bottom: 25px;
+    padding-bottom: 70px;
     display: grid;
     height: 120%;
     grid-template-columns: auto;
     grid-row-gap: 40px;
     text-align: center;
   }
+
+  .textbox {
+    width: 100%;
+    padding: 10px;
+  }
   #beneLogo {
     width: 60%;
     height: auto;
     margin: auto;
-    border-radius: 50%;
-    box-shadow: 10px 10px 8px #888888;
   }
   Button {
     width: 50%;
@@ -52,12 +55,12 @@ export const Welcome = () => {
   return (
     <Wrapper>
       <div className="pageContent">
-        <div>
-          <H1 type='bold'>Kia Ora Danielle</H1>
-          <H1 type='bold'>Welcome to</H1>
+        <div className="textbox">
+          <h2>Kia Ora Danielle!</h2>
+          <h2>I'm Bennie, and I'm here to help you manage your money each week.</h2>
         </div>
         <img src={logo} id="beneLogo" alt='bennie logo'/>
-        <Button type='primary' shape='round' onClick={onClickStart}>Get Started</Button>
+        <Button type='primary' shape='round' onClick={onClickStart}>Let's Go!</Button>
         <div>
           <p>Powered by</p>
           <img src={pocketfulLogo} id="pocketfulLogo" alt="pocketful logo" />

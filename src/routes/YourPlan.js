@@ -4,8 +4,16 @@ import { Messaging } from '../components/messagingModal'
 import { ListBox } from "../components/ListBox";
 import { StyledButton as Button } from '../components/button';
 import { Wrapper } from '../components/wrapper';
-import { Modal, Icon, Button as ADButton } from 'antd';
+import { Modal, Icon } from 'antd';
+import styled from 'styled-components';
+import { theme } from '../theme'
+import {StyledH1 as H1} from '../components/text';
 
+const Return = styled('div')`
+  color: ${theme.color.primary};
+  margin: 10px;
+  font-family: "Poppins", sans-serif;
+`
 export class YourPlan extends React.Component {
   state = {
     paid: false,
@@ -55,21 +63,22 @@ export class YourPlan extends React.Component {
           {modalText}
         </Modal>
         <div className="page">
-          <Button type="secondary" size="small">
-            <Link to="/your-budget">
+          <Link to="/your-budget">
+            <Return>
               <Icon type="left" />
               Edit Your Budget
-            </Link>
-          </Button>
+            </Return>
+          </Link>
+          <H1>Your Plan</H1>
           <ListBox
-            title="Plan Review"
+            title="Review your weekly payment plan"
             data={[
               {
                 type: "Benefit Payment",
                 amt: "250",
                 icon: "fas fa-coins fa-fw"
               }, {
-                type: "Total Expense",
+                type: "Total Bills",
                 amt: "150",
                 icon: "fas fa-coins fa-fw"
               }
@@ -78,9 +87,9 @@ export class YourPlan extends React.Component {
           <Button disabled={paid} type="primary" shape='round' size="medium" onClick={this.showModal}>
             Set It Up
         </Button>
-        {paid && (<p id="successMessage">Your payment is all set up 😉👍🏿</p>)}
+          {paid && (<p id="successMessage">Your payment is all set up 😉👍🏿</p>)}
         </div>
-
+        <Messaging/>
       </Wrapper>
 
     )
