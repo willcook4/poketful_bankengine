@@ -59,4 +59,24 @@ export const StyledButton = styled(Button)`
     }
   `
       : null}
+
+  ${props =>
+    props.align && props.align === "right"
+      ? `
+    display: flex;
+    margin-left: auto;
+  `
+      : null}
+
+  ${props =>
+    props.btnsize && props.btnsize === "medium"
+      ? `
+      width: 50%;
+      height: 50px;
+      font-size: 20px;
+      margin: 10px auto;
+  `
+      : props.btnsize === "small"
+      ? `width: 40%`
+      : null}
 `;

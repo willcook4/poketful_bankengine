@@ -1,12 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import getWeeklyBills from "../getWeeklyBills";
 
-import { List } from "antd";
-import { NavBar } from "../components/NavBar";
-import { BudgetListItem } from "../components/BudgetListItem";
 import { ListBox } from "../components/ListBox";
 import { StyledButton as Button } from "../components/button";
+import getWeeklyBills from "../getWeeklyBills";
+import { Messaging } from "../components/messagingModal";
+import { Link } from "@reach/router";
 
 const Wrapper = styled("div")`
   .page {
@@ -35,8 +34,6 @@ export class YourBudget extends React.Component {
     window.localStorage.setItem("benefit", this.state.benefit);
     window.localStorage.setItem("billTotal", this.state.billTotal);
     window.localStorage.setItem("moneyLeft", this.state.moneyLeft);
-
-    //implement the navigation to next screen
   };
 
   trackBills = total => {
@@ -54,7 +51,6 @@ export class YourBudget extends React.Component {
     return (
       <Wrapper>
         <div className="page">
-          {/* <NavBar /> */}
           <ListBox
             title="Your Weekly Benefit"
             data={[
@@ -90,12 +86,13 @@ export class YourBudget extends React.Component {
               shape="round"
               size="large"
               block
-              onclick={this.goNextScreen}
+              onClick={this.goNextScreen}
             >
-              All good!
+              <Link to="/your-plan">All good!</Link>
             </Button>
           </div>
         </div>
+        {/* <Messaging /> */}
       </Wrapper>
     );
   }
