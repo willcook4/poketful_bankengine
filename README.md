@@ -1,5 +1,6 @@
+###### Spot prize winner - Most Social Impact
 This project was created during New Zealand's first Open Banking Hackathon organised by BankEngine.
-Spot prize winner - Most Social Impact
+
 
 ## Bennie - Youth Payment Assistant
 
