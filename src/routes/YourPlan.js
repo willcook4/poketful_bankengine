@@ -18,7 +18,9 @@ export class YourPlan extends React.Component {
   state = {
     paid: false,
     modalVisible: false,
-    modalText: "Confirm setting up $134 weekly payment towards expenses",
+    modalText: `Confirm setting up ${window.localStorage.getItem(
+      "moneyLeft"
+    )} weekly payment towards expenses`,
     modalConfirmLoading: false
   };
 
@@ -84,12 +86,12 @@ export class YourPlan extends React.Component {
             data={[
               {
                 type: "Benefit Payment",
-                amt: "250",
+                amt: window.localStorage.getItem("benefit"),
                 icon: "fas fa-coins fa-fw"
               },
               {
                 type: "Total Bills",
-                amt: "134",
+                amt: window.localStorage.getItem("billTotal"),
                 icon: "fas fa-coins fa-fw"
               }
             ]}

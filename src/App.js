@@ -65,7 +65,7 @@ class App extends React.Component {
       <MessageContext.Provider
         value={{ msgHistory: this.state, createMsg: this.state.createMsg }}
       >
-        <Router>
+        <Router style={{ height: "100%" }}>
           <Welcome path="/" />
           <YourBudget path="/your-budget" />
           <Authentication path="/authentication" />

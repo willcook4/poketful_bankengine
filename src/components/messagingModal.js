@@ -73,17 +73,17 @@ export class Messaging extends React.Component {
   }
 
   componentDidMount() {
-    this.scrollToBottom();
+    // this.scrollToBottom();
   }
 
   componentDidUpdate() {
-    this.scrollToBottom();
+    // this.scrollToBottom();
   }
 
   scrollToBottom() {
-    animateScroll.scrollToBottom({
-      containerId: "msg-history"
-    });
+    // animateScroll.scrollToBottom({
+    //   containerId: "msg-history"
+    // });
   }
 
   showModal = () => {

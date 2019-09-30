@@ -20,7 +20,7 @@ const CollectionCreateForm = Form.create({ name: "form_in_modal" })(
           onCancel={onCancel}
           onOk={onCreate}
           footer={[
-            <Button key="back" block type="ghost" onClick={onCancel}>
+            <Button key="back" type="ghost" onClick={onCancel}>
               Cancel
             </Button>,
             <Button key="submit" type="primary" onClick={onCreate}>
