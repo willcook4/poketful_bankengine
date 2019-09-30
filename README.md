@@ -1,5 +1,5 @@
 ###### Spot prize winner - Most Social Impact
-This project was created during New Zealand's first Open Banking Hackathon organised by BankEngine.
+This project was created during **New Zealand's first Open Banking Hackathon** organised by [BankEngine](https://bankengine.nz/).
 
 
 ## Bennie - Youth Payment Assistant
@@ -13,8 +13,8 @@ The app was desinged for the phone screen size, but will work perfectly fine on 
 
 Big thanks to the Team:
 
-- David Ting @davetingbro
-- Will Cook @willcook4
-- Alex Ivanov @ivalexig
+- David Ting [@davetingbro](https://github.com/davetingbro)
+- Will Cook [@willcook4](https://github.com/willcook4)
+- Alex Ivanov [@ivalexig](https://github.com/ivalexig)
 - Steve Adams
 - Rebecca Fairbrother
