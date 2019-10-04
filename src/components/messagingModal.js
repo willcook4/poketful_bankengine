@@ -3,7 +3,6 @@ import { Modal, Input, Icon, Comment, List } from "antd";
 import { animateScroll } from "react-scroll";
 import styled from "styled-components";
 import { ChatBubble } from "./chatBubble";
-// import { StyledTextArea as TextArea } from './textarea'
 import { StyledButton as Button } from "./button";
 import ysp from "../images/ysp.jpg";
 import userImg from "../images/user.jpg";
@@ -73,17 +72,17 @@ export class Messaging extends React.Component {
   }
 
   componentDidMount() {
-    // this.scrollToBottom();
+    this.scrollToBottom();
   }
 
   componentDidUpdate() {
-    // this.scrollToBottom();
+    this.scrollToBottom();
   }
 
   scrollToBottom() {
-    // animateScroll.scrollToBottom({
-    //   containerId: "msg-history"
-    // });
+    animateScroll.scrollToBottom({
+      containerId: "msg-history"
+    });
   }
 
   showModal = () => {

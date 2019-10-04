@@ -1,5 +1,4 @@
 import React from "react";
-// import { render } from 'react-dom'
 import { Router } from "@reach/router";
 import moment from "moment";
 
@@ -11,7 +10,6 @@ import { Authentication } from "./routes/Authentication";
 import { YourBudget } from "./routes/YourBudget";
 import { YourPlan } from "./routes/YourPlan";
 import { YourPayment } from "./routes/YourPayment";
-import { Home } from "./routes/Home";
 
 import { MessageContext } from "./messageContextProvider";
 
@@ -66,12 +64,11 @@ class App extends React.Component {
         value={{ msgHistory: this.state, createMsg: this.state.createMsg }}
       >
         <Router style={{ height: "100%" }}>
-          <Welcome path="/" />
+          <Welcome path="/" default />
           <YourBudget path="/your-budget" />
           <Authentication path="/authentication" />
           <YourPlan path="/your-plan" />
           <YourPayment path="/your-payment" />
-          {/* <Home path='/' /> */}
         </Router>
       </MessageContext.Provider>
     );

@@ -18,9 +18,9 @@ export class YourPlan extends React.Component {
   state = {
     paid: false,
     modalVisible: false,
-    modalText: `Confirm setting up ${window.localStorage.getItem(
+    modalText: `Confirm setting up your weekly payment of $${window.localStorage.getItem(
       "moneyLeft"
-    )} weekly payment towards expenses`,
+    )} towards expenses`,
     modalConfirmLoading: false
   };
 
@@ -105,7 +105,7 @@ export class YourPlan extends React.Component {
           >
             Set It Up
           </Button>
-          {paid && <p id="successMessage">Your payment is all set up 😉👍🏿</p>}
+          {paid && <p id="successMessage">Your payment is all set up <span role='img' aria-label='super happy'>😉👍🏿</span></p>}
         </div>
         <Messaging />
       </Wrapper>
