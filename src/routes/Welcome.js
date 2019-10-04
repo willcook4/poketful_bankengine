@@ -56,7 +56,7 @@ const Wrapper = styled("div")`
   p {
     margin-bottom: 5px;
   }
-  
+
   .bold {
     font-weight: bold;
   }
@@ -65,7 +65,7 @@ const Wrapper = styled("div")`
 export const Welcome = () => {
   const onClickStart = () => {
     const authURL =
-      "https://auth.bankengine.nz/banks?ReturnUrl=%2Fconnect%2Fauthorize%2Fcallback%3Fresponse_type%3Dcode%26client_id%3Dbene%26redirect_uri%3Dhttp%253A%252F%252Flocalhost%253A3000%252Fyour-budget%26scope%3Duserinfo%2520offline_access%2520accounts%2520balance%2520transactions%2520payments%26nonce%3Dnonce%26state%3Dstate%2527";
+      "https://auth.bankengine.nz/banks?ReturnUrl=%2Fconnect%2Fauthorize%2Fcallback%3Fresponse_type%3Dcode%26client_id%3Dbene%26redirect_uri%3Dhttps%253A%252F%252Fbennie-pocketful.herokuapp.com%252Fyour-budget%26scope%3Duserinfo%2520offline_access%2520accounts%2520balance%2520transactions%2520payments%26nonce%3Dnonce%26state%3Dstate%2527";
     window.location.assign(authURL);
   };
 
