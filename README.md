@@ -4,7 +4,7 @@ This project was created during **New Zealand's first Open Banking Hackathon** o
 
 ## Bennie - Youth Payment Assistant
 
-Use `npm install` & `npm start` to run the app
+Use `npm install` & `npm start` to run the app or [click here](https://inspiring-beaver-ae1b7d.netlify.com/) to view deployed version.
 
 You can use the following email for the authentication screen - `Danielle@youth.co.nz`
 If BankEngine authentication api is no longer working, you can skip it by going to _/your-budget_ route
