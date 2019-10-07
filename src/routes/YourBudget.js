@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "@reach/router";
 
 import { ListBox } from "../components/ListBox";
 import { StyledButton as Button } from "../components/button";
 import getWeeklyBills from "../getWeeklyBills";
 import { Messaging } from "../components/messagingModal";
-import { Link } from "@reach/router";
 
 const Wrapper = styled("div")`
   font-family: "Poppins", sans-serif;

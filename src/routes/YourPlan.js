@@ -58,11 +58,14 @@ export class YourPlan extends React.Component {
           confirmLoading={modalConfirmLoading}
           onCancel={this.handleModalCancel}
           footer={[
-            <Button type="ghost" onClick={this.handleModalCancel}>
+            <Button
+              type="ghost"
+              onClick={this.handleModalCancel}
+              key='cancel'>
               Cancel
             </Button>,
             <Button
-              key="submit"
+              key="confirm"
               type="primary"
               loading={modalConfirmLoading}
               onClick={this.handleModalConfirm}

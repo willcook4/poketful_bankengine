@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Messaging } from "../components/messagingModal";
 import { Ribbon } from '../components/Ribbon'
 import { StyledButton as Button } from "../components/button";
+import { Link } from '@reach/router'
 
 import logo from "../girl.png";
 import pocketfulLogo from "../Pocketful_logo-1.png";
@@ -62,13 +63,8 @@ const Wrapper = styled("div")`
   }
 `;
 
-export const Welcome = () => {
-  const onClickStart = () => {
-    const authURL =
-      "https://auth.bankengine.nz/banks?ReturnUrl=%2Fconnect%2Fauthorize%2Fcallback%3Fresponse_type%3Dcode%26client_id%3Dbene%26redirect_uri%3Dhttps%253A%252F%252Fbennie-pocketful.herokuapp.com%252Fyour-budget%26scope%3Duserinfo%2520offline_access%2520accounts%2520balance%2520transactions%2520payments%26nonce%3Dnonce%26state%3Dstate%2527";
-    window.location.assign(authURL);
-  };
 
+export const Welcome = () => {
   return (
     <Wrapper>
       <div className="pageContent">
@@ -81,9 +77,9 @@ export const Welcome = () => {
         
         <img src={logo} id="beneLogo" alt="bennie logo" />
 
-        <Button type="primary" shape="round" onClick={onClickStart}>
-          Let's Go!
-        </Button>
+        <Link to='/choose-bank'>
+          <Button type="primary" shape="round">Let's Go!</Button>
+        </Link>
         <div>
           <p>Powered by</p>
           <a href="https://pocketful.co.nz/" target="_blank" rel="noopener noreferrer"><img src={pocketfulLogo} id="pocketfulLogo" alt="pocketful logo" /></a>
