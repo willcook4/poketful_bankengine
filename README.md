@@ -6,7 +6,9 @@ This project was created during **New Zealand's first Open Banking Hackathon** o
 
 Use `npm install` & `npm start` to run the app
 
-You can use the following email for the authentication screen - `Danielle@youth.co.nz`
+Try a demo of the account [here](https://bennie-pocketful.herokuapp.com/) or [here](https://inspiring-beaver-ae1b7d.netlify.com/)
+
+You can use the following email for the authentication screen - `danielle@youth.co.nz`
 If BankEngine authentication api is no longer working, you can skip it by going to _/your-budget_ route
 
 The app was desinged for the phone screen size, but will work perfectly fine on other screen sizes.
