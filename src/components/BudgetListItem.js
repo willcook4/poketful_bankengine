@@ -29,7 +29,11 @@ export class BudgetListItem extends React.Component {
           title={this.props.title}
           description={this.props.description}
         />
-        <div className="amount" style={{width: 'auto'}}>$ {parseFloat(this.props.amt).toFixed(2)}</div>
+    {(this.props.amt < 0) ? (<div className="amount" style={{width: 'auto', color: 'firebrick'}}>$ {parseFloat(this.props.amt).toFixed(2)}</div>) : (<div className="amount" style={{width: 'auto'}}>$ {parseFloat(this.props.amt).toFixed(2)}</div>)}
+        
+        
+        
+        
         {this.props.needCheckbox ? (
           <Checkbox checked={this.state.checked} />
         ) : (
