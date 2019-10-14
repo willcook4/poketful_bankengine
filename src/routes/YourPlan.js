@@ -20,7 +20,7 @@ export class YourPlan extends React.Component {
     modalVisible: false,
     modalText: `Confirm setting up your weekly payment of $${parseFloat(window.localStorage.getItem(
       "billTotal"
-    )).toFixed(2)} towards expenses`,
+    )).toFixed(2)} towards expenses?`,
     modalConfirmLoading: false,
     error: false
   };
@@ -34,7 +34,7 @@ export class YourPlan extends React.Component {
     // else carry on to confirmation
     this.setState({
       modalVisible: true,
-      modalText: `Confirm setting up your weekly payment of $${parseFloat(window.localStorage.getItem( "billTotal" )).toFixed(2)} towards expenses`
+      modalText: `Confirm setting up your weekly payment of $${parseFloat(window.localStorage.getItem( "billTotal" )).toFixed(2)} towards expenses?`
     });
   };
 
