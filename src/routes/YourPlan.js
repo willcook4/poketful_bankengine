@@ -18,9 +18,9 @@ export class YourPlan extends React.Component {
   state = {
     paid: false,
     modalVisible: false,
-    modalText: `Confirm setting up your weekly payment of $${window.localStorage.getItem(
+    modalText: `Confirm setting up your weekly payment of $${parseFloat(window.localStorage.getItem(
       "billTotal"
-    )} towards expenses`,
+    )).toFixed(2)} towards expenses`,
     modalConfirmLoading: false
   };
 

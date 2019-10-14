@@ -40,7 +40,7 @@ const Wrapper = styled("div")`
     font-weight: 700;
     color: black;
     margin-right: 15px;
-    width: 65px;
+    width: 72px;
   }
 
   .ant-list-item i {
@@ -69,7 +69,7 @@ const Wrapper = styled("div")`
   }
 
   .totalAmt {
-    margin-left: 100px;
+    margin-left: 24px;
   }
 `;
 
@@ -80,7 +80,7 @@ export class ListBox extends React.Component {
     visible: false,
     total: this.props.needCheckbox
       ? 0
-      : this.props.data.reduce((a, b) => a + parseInt(b.amt), 2)
+      : this.props.data.reduce((a, b) => a + parseFloat(b.amt), 0)
   };
 
   toggleAddNewBill = () => {

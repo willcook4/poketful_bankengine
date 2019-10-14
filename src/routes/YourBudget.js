@@ -84,7 +84,7 @@ export class YourBudget extends React.Component {
             data={[
               {
                 type: "Your spending money",
-                amt: this.state.moneyLeft,
+                amt: this.state.moneyLeft.toFixed(2),
                 icon: "fas fa-hand-holding-usd fa-fw",
                 description: ""
               }
