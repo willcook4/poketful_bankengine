@@ -19,7 +19,7 @@ export class YourPlan extends React.Component {
     paid: false,
     modalVisible: false,
     modalText: `Confirm setting up your weekly payment of $${window.localStorage.getItem(
-      "moneyLeft"
+      "billTotal"
     )} towards expenses`,
     modalConfirmLoading: false
   };

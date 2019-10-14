@@ -70,12 +70,10 @@ export const Welcome = () => {
       <div className="pageContent">
         <div className="textbox">
           <h2>Kia Ora <span className='bold'>Danielle!</span></h2>
-          <h2>
-            I'm Bennie, and I'm here to help you manage your money each week.
-          </h2>
+          <h2>I'm Pocketful, and I'm here to help you manage your money each week.</h2>
         </div>
         
-        <img src={logo} id="beneLogo" alt="bennie logo" />
+        <img src={logo} id="beneLogo" alt="Penny logo" />
 
         <Link to='/choose-bank'>
           <Button type="primary" shape="round">Let's Go!</Button>
