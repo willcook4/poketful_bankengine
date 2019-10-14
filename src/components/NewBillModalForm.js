@@ -58,6 +58,7 @@ class CollectionCreateForm extends React.Component {
                 default:
                   break;
               }
+              
               onCreate({
                 title: this.nameRef.current.state.value,
                 amt: cleanedAmount,

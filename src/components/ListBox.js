@@ -101,9 +101,10 @@ export class ListBox extends React.Component {
       description: "Per Week",
       icon: "fas fa-file-invoice-dollar fa-fw"
     };
-    var newState = [...this.state.data, newBill];
-
-    this.props.updateBillData(newState);
+    var newStateData = [...this.state.data, newBill];
+    this.setState({...this.state, data: newStateData}, () => {
+      this.props.updateBillData(newStateData);
+    })
   };
 
   render() {
