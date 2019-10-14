@@ -73,10 +73,12 @@ const Banner = () => {
     padding: 14px;
     width: 100%;
     opacity: 0.8;
+    padding-bottom: 10px;
   `
   return (
     <BannerWrapper>
-      <p style={{MarginBottom: '8px', textAlign: 'center'}}>Due to potential changes in the BankEngine API we have faked this page for this demo</p>
+      <p style={{MarginBottom: '8px', textAlign: 'center', fontSize: '10px', marginBottom: '0'}}>Due to potential changes in the BankEngine API</p>
+      <p style={{MarginBottom: '8px', textAlign: 'center', fontSize: '10px', marginBottom: '0.5em'}}>we have faked this page for this demo</p>
       <p style={{fontWeight: 'bold', marginBottom: '0', textAlign: 'center'}}>Select Login to continue</p>
     </BannerWrapper>
   )

@@ -35,10 +35,13 @@ const CollectionCreateForm = Form.create({ name: "form_in_modal" })(
             <Form.Item label="Amount">
               {getFieldDecorator("amt")(
                 <InputNumber
-                  formatter={value =>
-                    `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                  }
+                  formatter={(value) => {
+                    var rgx = /^[0-9]*\.?[0-9]*$/; // zero or more numeric characters, followed by zero or one period(s), followed by zero or more numeric characters.
+                    return `$ ${value.match(rgx)}`
+                  }}
                   parser={value => value.replace(/\$\s?|(,*)/g, "")}
+                  precision={2}
+                  initialValue={0.00}
                 />
               )}
             </Form.Item>

@@ -40,7 +40,7 @@ const Wrapper = styled("div")`
     font-weight: 700;
     color: black;
     margin-right: 15px;
-    width: 50px;
+    width: 65px;
   }
 
   .ant-list-item i {
@@ -80,7 +80,7 @@ export class ListBox extends React.Component {
     visible: false,
     total: this.props.needCheckbox
       ? 0
-      : this.props.data.reduce((a, b) => a + parseInt(b.amt), 0)
+      : this.props.data.reduce((a, b) => a + parseInt(b.amt), 2)
   };
 
   toggleAddNewBill = () => {
