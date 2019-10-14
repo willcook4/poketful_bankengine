@@ -4,7 +4,7 @@ import { Messaging } from "../components/messagingModal";
 import { ListBox } from "../components/ListBox";
 import { StyledButton as Button } from "../components/button";
 import { Wrapper } from "../components/wrapper";
-import { Modal, Icon } from "antd";
+import { Modal, Icon, Alert } from "antd";
 import styled from "styled-components";
 import { theme } from "../theme";
 import { StyledH1 as H1 } from "../components/text";
@@ -21,11 +21,21 @@ export class YourPlan extends React.Component {
     modalText: `Confirm setting up your weekly payment of $${parseFloat(window.localStorage.getItem(
       "billTotal"
     )).toFixed(2)} towards expenses`,
-    modalConfirmLoading: false
+    modalConfirmLoading: false,
+    error: false
   };
 
   showModal = () => {
-    this.setState({ modalVisible: true });
+    // if moneyLeft is negative don't allow the confirmation step
+    if (parseFloat(window.localStorage.getItem("moneyLeft")).toFixed(2) < 0) {
+      this.setState({ error: 'You will need to chat with your YSP. Click the chat bubble to chat with your YSP' });
+      return
+    }
+    // else carry on to confirmation
+    this.setState({
+      modalVisible: true,
+      modalText: `Confirm setting up your weekly payment of $${parseFloat(window.localStorage.getItem( "billTotal" )).toFixed(2)} towards expenses`
+    });
   };
 
   handleModalConfirm = () => {
@@ -48,7 +58,7 @@ export class YourPlan extends React.Component {
   };
 
   render() {
-    const { paid, modalVisible, modalConfirmLoading, modalText } = this.state;
+    const { paid, modalVisible, modalConfirmLoading, modalText, error } = this.state;
     return (
       <Wrapper>
         <Modal
@@ -84,6 +94,13 @@ export class YourPlan extends React.Component {
             </Return>
           </Link>
           <H1>Your Plan</H1>
+          {error ? (
+          <Alert
+            message={"Something went wrong"}
+            description={error}
+            type="warning"
+            showIcon
+          />) : null}
           <ListBox
             title="Review your weekly payment plan"
             data={[
