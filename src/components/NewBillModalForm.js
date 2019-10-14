@@ -15,6 +15,9 @@ const { Option } = Select;
 class CollectionCreateForm extends React.Component {
   constructor(props) {
     super(props)
+    // state
+    
+    // Refs
     this.nameRef = React.createRef();
     this.amountRef = React.createRef();
     this.dueDateRef = React.createRef();
@@ -23,6 +26,7 @@ class CollectionCreateForm extends React.Component {
 
   render() {
     const { visible, onCancel, onCreate } = this.props;
+    
     return (
       <Modal
         visible={visible}
@@ -34,13 +38,39 @@ class CollectionCreateForm extends React.Component {
           <Button
             key="back"
             type="ghost"
-            onClick={onCancel}>
+            onClick={() => {
+              // clear the form
+              console.log('Cancelled, clearing the form...')
+              this.nameRef.current.state.value = null
+              this.amountRef.current.inputNumberRef.state.value = 0
+              this.dueDateRef.current.picker.state.value = null
+              this.freqRef.current.rcSelect.state.value = []
+              
+              onCancel()}}
+          >
             Cancel
           </Button>,
           <Button
             key="submit"
             type="primary"
             onClick={() => {
+              if (!this.nameRef.current.state.value) {
+                console.log('You must provide a name')
+                return // don't submit if there is an error
+              }
+              if (!this.amountRef.current.inputNumberRef.currentValue) {
+                console.log('no amount value')
+                return // don't submit if there is an error
+              }
+              if (!this.dueDateRef.current.picker.state.value) {
+                console.log('no date value')
+                return // don't submit if there is an error
+              }
+              if (!this.freqRef.current.rcSelect.state.value[0]) {
+                console.log('no frequency value')
+                return // don't submit if there is an error
+              }
+
               let amount = this.amountRef.current.inputNumberRef.currentValue
               let cleanedAmount = amount.replace(/[^\d.]+/g, "") // remove any non numbers or decimals
               cleanedAmount = cleanedAmount.match(/[^.]*.\d+/g)[0] // get the numbers and the first occurance of a decimal place(if any)
@@ -58,13 +88,20 @@ class CollectionCreateForm extends React.Component {
                 default:
                   break;
               }
-              
+
               onCreate({
                 title: this.nameRef.current.state.value,
                 amt: cleanedAmount,
                 dueDate: this.dueDateRef.current.picker.state.value, // a Moment
                 frequency: frequency
               })
+
+              // clear the form
+              console.log('Submitted, clearing the form...')
+              this.nameRef.current.state.value = null
+              this.amountRef.current.inputNumberRef.state.value = 0
+              this.dueDateRef.current.picker.state.value = null
+              this.freqRef.current.rcSelect.state.value = []
             }}>
             Add Bill
           </Button>
@@ -89,7 +126,7 @@ class CollectionCreateForm extends React.Component {
               />
             </span>
           </Form.Item>
-          
+
           <Form.Item label="Amount"
             style={{
               paddingBottom: '0',
@@ -175,14 +212,12 @@ export class NewBillModalForm extends React.Component {
   };
 
   handleCancel = () => {
-    console.log('handle cancel')
     this.setState({ visible: false });
     // todo clear the form
   };
 
   handleCreate = (formValues) => {
     this.props.handleSubmit(formValues);
-    // todo clear the form
     this.setState({ visible: false });
   };
 
