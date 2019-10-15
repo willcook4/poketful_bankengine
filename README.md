@@ -39,7 +39,7 @@ Administering the NEET benefit and budgeting assistance is currently seen as an 
 - Clip ticket from billers as we help them get their bill payments on time
 - Charge outsourcing fees to YSPs for the service
 
-### [Try a demo of the app here](https://laughing-morse-3a00ab.netlify.com/) ###
+### [Try a demo of the app here](https://objective-clarke-aece7b.netlify.com/) ###
 
 ### The code and how to run it
 
