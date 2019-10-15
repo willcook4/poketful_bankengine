@@ -40,7 +40,7 @@ const Wrapper = styled("div")`
     font-weight: 700;
     color: black;
     margin-right: 15px;
-    width: 50px;
+    width: 72px;
   }
 
   .ant-list-item i {
@@ -69,7 +69,7 @@ const Wrapper = styled("div")`
   }
 
   .totalAmt {
-    margin-left: 100px;
+    margin-left: 24px;
   }
 `;
 
@@ -80,7 +80,7 @@ export class ListBox extends React.Component {
     visible: false,
     total: this.props.needCheckbox
       ? 0
-      : this.props.data.reduce((a, b) => a + parseInt(b.amt), 0)
+      : this.props.data.reduce((a, b) => a + parseFloat(b.amt), 0)
   };
 
   toggleAddNewBill = () => {
@@ -101,9 +101,10 @@ export class ListBox extends React.Component {
       description: "Per Week",
       icon: "fas fa-file-invoice-dollar fa-fw"
     };
-    var newState = [...this.state.data, newBill];
-
-    this.props.updateBillData(newState);
+    var newStateData = [...this.state.data, newBill];
+    this.setState({...this.state, data: newStateData}, () => {
+      this.props.updateBillData(newStateData);
+    })
   };
 
   render() {

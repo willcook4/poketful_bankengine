@@ -14,6 +14,7 @@ const Wrapper = styled('div')`
   line-height: 20px;
   letter-spacing: 0.5px;
   color: grey;
+  opacity: 0.8;
 
   :hover {
     cursor: pointer;

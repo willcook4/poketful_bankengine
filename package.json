@@ -1,5 +1,6 @@
 {
   "name": "pocketful_bankengine",
+  "short_name": "Bennie",
   "version": "0.1.0",
   "description": "This project was created during New Zealand's first Open Banking Hackathon organised by BankEngine",
   "private": true,
@@ -34,8 +35,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "engines": {
-    "node": "10.x"
   }
 }

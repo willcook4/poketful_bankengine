@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "@reach/router";
 
 import { ListBox } from "../components/ListBox";
 import { StyledButton as Button } from "../components/button";
 import getWeeklyBills from "../getWeeklyBills";
 import { Messaging } from "../components/messagingModal";
-import { Link } from "@reach/router";
 
 const Wrapper = styled("div")`
   font-family: "Poppins", sans-serif;
@@ -84,7 +84,7 @@ export class YourBudget extends React.Component {
             data={[
               {
                 type: "Your spending money",
-                amt: this.state.moneyLeft,
+                amt: this.state.moneyLeft.toFixed(2),
                 icon: "fas fa-hand-holding-usd fa-fw",
                 description: ""
               }

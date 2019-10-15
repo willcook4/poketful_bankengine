@@ -6,6 +6,7 @@ import "antd/dist/antd.css";
 import "./App.css";
 
 import { Welcome } from "./routes/Welcome";
+import { ChooseBank } from "./routes/ChooseBank";
 import { Authentication } from "./routes/Authentication";
 import { YourBudget } from "./routes/YourBudget";
 import { YourPlan } from "./routes/YourPlan";
@@ -65,6 +66,7 @@ class App extends React.Component {
       >
         <Router style={{ height: "100%" }}>
           <Welcome path="/" default />
+          <ChooseBank path="/choose-bank" />
           <YourBudget path="/your-budget" />
           <Authentication path="/authentication" />
           <YourPlan path="/your-plan" />
